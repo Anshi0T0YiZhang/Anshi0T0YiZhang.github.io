@@ -1,34 +1,41 @@
-name: Setup Ruby
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - main  # 触发推送到 main 分支时执行工作流
 
 jobs:
-  setup_ruby:
-    runs-on: ubuntu-24.04
+  build:
+    runs-on: ubuntu-24.04  # 使用 Ubuntu 24.04 系统
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2  # 检出代码
 
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y build-essential libssl-dev libreadline-dev zlib1g-dev
+      - name: Set up Ruby (如果需要的话)
+        uses: ruby/setup-ruby@v1  # 根据需要设置 Ruby 环境
 
-      - name: Install ruby-build
+      - name: Build site (例如使用 Jekyll 或 Hugo 构建)
         run: |
-          git clone https://github.com/rbenv/ruby-build.git
-          cd ruby-build
-          ./install.sh
+          # 这里写上你的构建命令
+          echo "Building site"  # 根据你的需求添加构建命令，例如 `jekyll build`
 
-      - name: Install Ruby 3.1.4 using ruby-build
-        run: |
-          ruby-build 3.1.4 /opt/hostedtoolcache/Ruby/3.1.4/x64
-          touch /opt/hostedtoolcache/Ruby/3.1.4/x64.complete
+      - name: Upload build artifact for GitHub Pages
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages-${{ github.run_id }}  # 使用唯一的构件名称
+          path: ./_site  # 这里是你的构建输出目录，比如 Jekyll 输出的是 `_site`
 
-      - name: Verify Ruby installation
-        run: ruby -v
+  deploy:
+    runs-on: ubuntu-24.04  # 使用 Ubuntu 24.04 系统
+    needs: build  # 确保在构建完成后再部署
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # 检出代码
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_id }}  # 引用唯一的构件名称
