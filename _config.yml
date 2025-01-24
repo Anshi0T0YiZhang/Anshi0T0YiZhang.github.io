@@ -1,7 +1,7 @@
 # Site settings
 title: Pingping's Blog
 SEOTitle: wpp的博客 | PingpingWang's Blog
-header-img: img/home-bg.jpg
+header-img: img/walle.jpg
 email: pingping1997w@gmail.com
 description: "这里是 @pingw 的个人博客，与你一起认识自我，探索世界 | 人生不设限"
 keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, Web, JavaScript, React, React Native, 前端, 设计"
@@ -19,6 +19,7 @@ github_username: pingping1997
 twitter_username: particlesping
 #facebook_username:  huxpro
 linkedin_username:  pingping-wang-b91732161
+instagram_username: pingsdc
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
