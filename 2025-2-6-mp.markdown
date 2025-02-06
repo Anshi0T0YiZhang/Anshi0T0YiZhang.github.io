@@ -1,0 +1,19 @@
+location / {
+    try_files $uri $uri/ @wordpress;
+}
+
+location ~ \.php$ {
+    try_files $uri @wordpress;
+
+    fastcgi_pass ...;
+
+    fastcgi_param SCRIPT_FILENAME /path/to$fastcgi_script_name;
+    ... other fastcgi_param's
+}
+
+location @wordpress {
+    fastcgi_pass ...;
+
+    fastcgi_param SCRIPT_FILENAME /path/to/index.php;
+    ... other fastcgi_param's
+}
