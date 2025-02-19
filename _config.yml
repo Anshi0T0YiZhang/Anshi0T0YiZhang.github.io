@@ -7,7 +7,11 @@ description: "这里是王海 Nachuan 的个人博客，与你一起发现更大
 keyword: "王海, Hai Wang, Nachuan, talent, science, @technology, 王海的博客, Hai Blog, Biorobotics"
 url: "https://wangnachuanhai.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
-
+# _config.yml
+sass:
+  load_paths:
+    - assets/css
+    - docs
 # Publish posts or collection documents with a future date.
 future: true
 
