@@ -1,41 +1,37 @@
-name: Deploy to GitHub Pages
+name: Jekyll site build and deploy
 
 on:
   push:
     branches:
-      - main  # 触发推送到 main 分支时执行工作流
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-24.04  # 使用 Ubuntu 24.04 系统
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2  # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Set up Ruby (如果需要的话)
-        uses: ruby/setup-ruby@v1  # 根据需要设置 Ruby 环境
-
-      - name: Build site (例如使用 Jekyll 或 Hugo 构建)
-        run: |
-          # 这里写上你的构建命令
-          echo "Building site"  # 根据你的需求添加构建命令，例如 `jekyll build`
-
-      - name: Upload build artifact for GitHub Pages
-        uses: actions/upload-artifact@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          name: github-pages-${{ github.run_id }}  # 使用唯一的构件名称
-          path: ./_site  # 这里是你的构建输出目录，比如 Jekyll 输出的是 `_site`
+          ruby-version: 2.7
 
-  deploy:
-    runs-on: ubuntu-24.04  # 使用 Ubuntu 24.04 系统
-    needs: build  # 确保在构建完成后再部署
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2  # 检出代码
+      - name: Build the site
+        run: |
+          bundle exec jekyll build
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
-        with:
-          artifact_name: github-pages-${{ github.run_id }}  # 引用唯一的构件名称
+        run: |
+          bundle exec jekyll build
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add .
+          git commit -m 'Deploy to GitHub Pages'
+          git push
