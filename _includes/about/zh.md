@@ -1,9 +1,10 @@
-Hey，我是黄玄（a.k.a. Hux, _@huxpro_），一个略懂计算机科学与艺术的斜杆不动青年，自诩是一个[广院](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E4%BC%A0%E5%AA%92%E5%A4%A7%E5%AD%A6)数字媒体艺术系与 RIT 计算机科学系（师从 [Prof. Matthew Fluet](https://www.cs.rit.edu/~mtf/) 专攻编程语言）杂交出来的[黑客与画家](https://book.douban.com/subject/6021440/)。
+大家好，我是王萍萍，目前是维也纳技术大学的博士生，研究方向为可持续发展和过程系统工程。我的研究工作重点是将碳捕获和储存/利用（CCS/CCU）整合到当前和未来的工业基础设施中。
 
-现为 <del>Facebook</del> Meta 签约软件工程师，就职于开源技术<del>网红</del>团队 [React](https://beta.reactjs.org/community/meet-the-team#react-core)，曾参与 [Hermes JavaScript 引擎](https://hermesengine.dev/)，[ReasonML](https://reasonml.github.io/) (现 [ReScript](https://rescript-lang.org/))，以及 [Reality Labs](https://tech.fb.com/ar-vr/) 某保密项目等。在国内期间，曾被招募为阿里巴巴 · [阿里旅行（飞猪）](http://alitrip.com)· 前端工程师、微影时代 · 微票儿 · 前端基础设施工程团队负责人、[饿了么](https://ele.me/) · 大前端团队 · [PWA 顾问](https://medium.com/elemefe/upgrading-ele-me-to-progressive-web-app-2a446832e509) 等。
+我对不同社会经济系统和人类行为的演变和比较感到好奇。它可以帮助我更好地理解脱碳和可持续发展的公平性。此外，我还对定量预测未来情景感兴趣。
 
+我在一个被称为“石油城”的化工城市长大。我的个人成长故事也围绕着化学工业和化学工程展开。我从小就接触到的化学污染和对化学的兴趣使我从中学开始就对这个领域产生了兴趣。那时，我相信我可以通过化学改变世界，但创造一个没有那么多污染的世界。
 
-目前的物理活动范围主要在美帝纽约与硅谷，也想当个数字游<del>民</del>侠。虚拟分身日常出没于[微博](https://weibo.com/huxpro)、[知乎](https://www.zhihu.com/people/huxpro/pins/posts)、[B站](https://space.bilibili.com/43271611)、[Instagram](https://www.instagram.com/huxpro/)、[推特](https://twitter.com/Huxpro/)、[Github](https://github.com/huxpro) 等。
+我在成都西南石油大学学习化学工程。四年过得非常充实，参加过很多国内、国际的课外比赛，并带领不同的学生团队获奖。在参加上海的“一带一路挑战杯”之后，我萌生了出国留学的想法。
 
 
 ##### 技术演讲

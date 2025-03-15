@@ -1,12 +1,11 @@
-Hey, I am Huang, Xuan (a.k.a. _@huxpro_). I worked on the [React Team](https://beta.reactjs.org/community/meet-the-team#react-core) at <del>Facebook</del>Meta.
+Hey, I am Pingping, Wang. Now, I am a PhD student at TU Wien, working in field of sustainability and process systems engineering. My research work is focusing on the integration of carbon capture and storage/utilization (CCS/CCU) into current and future industrial infrastructures. 
 
-I considered myself as a hybrid between a software engineer specifically into the programming languages theories and implementations domain (i.e. compiler, type system, type-based formal verification, virtual machine, runtime systems, garbage collection), and a creative technologiest deeply caring about many humanistic aspects (e.g. visual, sound, interaction) in UI and HCI in general.
+I am curious about the evolution and comparisons of different social-economic systems and human behaviour. It can help me better understand the fairness in decarbonization and sustainable development. Furthermore, I am also interested in quantitatively project the scenarios of future. 
 
-I also worked on the [Hermes JavaScript Engine](https://hermesengine.dev/), some other projects under the [Reality Labs (Research)](https://tech.fb.com/ar-vr/), and [ReasonML](https://reasonml.github.io/) (now [ReScript](https://rescript-lang.org/)) efforts at Meta (Facebook).
+I grew up in a chemical industry city known as the "Oil City". My personal growth story also resolves around the chemical industry and chemical engineering. The chemical pollution and interest in chemistry that I have been exposed to since childhood have made me interested in this field since middle school. At that time, I believed that I could change the world through chemistry but create a world without so much pollution.
 
-In the past, I worked on [Alitrip (Fliggy)](https://www.alitrip.com/) mobile and web apps under the [Alibaba Group](https://en.wikipedia.org/wiki/Alibaba_Group), found and lead front-end infrastructure team at an unicorn startup company [Beijing Weiying (a.k.a. WePiao, now acquired by Maoyan)](https://www.crunchbase.com/organization/beijing-weiying-technology), and helped [Ele.me (now acquired by Alibaba)](https://en.wikipedia.org/wiki/Ele.me) to upgrade their mobile web site into [the first influential PWA (progressive web app) in China](https://medium.com/elemefe/upgrading-ele-me-to-progressive-web-app-2a446832e509).
+I studied BSc, chemical engineering at Southwest Petroleum University in Chengdu. I had a very fulfilling four years, participating in and leading different student teams to win awards in many national and international extracurricular competitions. After participating in a Belt and Road Challenge Cup in Shanghai, I had the idea of studying abroad. 
 
-I studied BA, Digital Media Art at [Communication University of China](https://en.wikipedia.org/wiki/Communication_University_of_China) and MS, Computer Science (with a focus on programming languages, mainly supervised by [Prof. Matthew Fluet](https://www.cs.rit.edu/~mtf/)) at [Rochester Institute of Technology](https://en.wikipedia.org/wiki/Rochester_Institute_of_Technology).
 
 ##### Appearence
 
