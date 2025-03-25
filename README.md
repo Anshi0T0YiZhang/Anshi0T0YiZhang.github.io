@@ -20,7 +20,7 @@
 
 ### **GitHub Stats**  
 <!-- 使用 GitHub Readme Stats 动态生成统计卡片 -->
-![Winter's GitHub Stats](https://github-readme-stats.vercel.app/api?username=winter_NaN&show_icons=true&theme=dark)
+![Winter's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Anshi0T0YiZhang&show_icons=true&theme=dark)
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=winter_NaN&layout=compact&theme=dark)
 
