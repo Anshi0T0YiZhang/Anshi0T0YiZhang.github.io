@@ -1,63 +1,30 @@
-[Hux Blog](https://huangxuan.me)
-================================
+# Better for Winter!!! ❄️
 
-> I never expected this to become popular.
+👋 Hi! I'm **Winter**, a developer passionate about multimedia tech and open-source collaboration.
 
-![](http://huangxuan.me/img/blog-desktop.jpg)
+- 🌟 **Currently Working On**: MPEG-ARF, H.264/AVC, WebRTC...
+- 🌟 **Learning**: Everything in the world (literally!).
+- 🌟 **Looking to Collaborate**: DeepSeek projects & multimedia frameworks.
+- 🌟 **Ask Me About**: WebRTC, FFmpeg, H.264.
+- 💬 **Pronouns**: Winter
+- 💬 **Fun Fact**: The earth is round (but code can be flat 😉).
 
+---
 
-[User Manual 👉](_doc/Manual.md)
---------------------------------------------------
+### **Tech Stack**  
+[![C++](https://img.shields.io/badge/-C++-00599C?logo=c%2B%2B&style=flat)](https://isocpp.org/)
+[![FFmpeg](https://img.shields.io/badge/-FFmpeg-007808?logo=ffmpeg&style=flat)](https://ffmpeg.org/)
+[![WebRTC](https://img.shields.io/badge/-WebRTC-333333?logo=webrtc&style=flat)](https://webrtc.org/)
 
-### Getting Started
+---
 
-1. You will need [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/) to use [Jekyll](https://jekyllrb.com/). Following [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/) to fullfill the enviromental requirement.
+### **GitHub Stats**  
+<!-- 使用 GitHub Readme Stats 动态生成统计卡片 -->
+![Winter's GitHub Stats](https://github-readme-stats.vercel.app/api?username=winter_NaN&show_icons=true&theme=dark)
 
-2. Installed dependencies in the `Gemfile`:
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=winter_NaN&layout=compact&theme=dark)
 
-```sh
-$ bundle install 
-```
-
-3. Serve the website (`localhost:4000` by default):
-
-```sh
-$ bundle exec jekyll serve  # alternatively, npm start
-```
-
-### Development (Build From Source)
-
-To modify the theme, you will need [Grunt](https://gruntjs.com/). There are numbers of tasks you can find in the `Gruntfile.js`, includes minifing JavaScript, compiling `.less` to `.css`, adding banners to keep the Apache 2.0 license intact, watching for changes, etc. 
-
-Yes, they were inherited and are extremely old-fashioned. There is no modularization and transpilation, etc.
-
-Critical Jekyll-related code are located in `_include/` and `_layouts/`. Most of them are [Liquid](https://github.com/Shopify/liquid/wiki) templates.
-
-This theme uses the default code syntax highlighter of jekyll, [Rouge](http://rouge.jneen.net/), which is compatible with Pygments theme so just pick any pygments theme css (e.g. from [here](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) and replace the content of `highlight.less`.
-
-
-### Interesting to know more? Checkout the [full user manual](_doc/Manual.md)!
-
-
-Other Resources
----------------
-
-Ports
-- [**Hexo**](https://github.com/Kaijun/hexo-theme-huxblog) by @kaijun
-- [**React-SSR**](https://github.com/LucasIcarus/huxpro.github.io/tree/ssr) by @LucasIcarus
-
-[Starter/Boilerplate](https://github.com/huxpro/huxblog-boilerplate)
-- Out of date. Helps wanted for updating it on par with the main repo
-
-Translation
-- [🇨🇳  中文文档（有点过时）](https://github.com/Huxpro/huxpro.github.io/blob/master/_doc/README.zh.md)
-
-
-License
--------
-
-Apache License 2.0.
-Copyright (c) 2015-present Huxpro
-
-Hux Blog is derived from [Clean Blog Jekyll Theme (MIT License)](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/)
-Copyright (c) 2013-2016 Blackrock Digital LLC.
+<!-- 自定义贡献统计 -->
+| **Total Stars** | **Total Commits (2025)** | **Total PRs** | **Contributed (Last Year)** |
+|-----------------|--------------------------|---------------|-----------------------------|
+| 0               | 41                       | 7             | 2                           |
