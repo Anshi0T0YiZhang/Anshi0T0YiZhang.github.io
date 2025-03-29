@@ -4,7 +4,7 @@ title:      "Point Cloud、Mesh 和 3D Gaussian Splitting"  # 文章标题。
 subtitle:   "如何看待3D表示形式的演化？"  # 子标题。
 date:       2025-03-29 12:00:00  # 文章发布时间。
 author:     "nothing丿zip"  # 作者名称。
-header-img: "img/rabbitPC.png"  # 文章标题背景图。
+header-img: "img/pointCloudRelated/rabbitPC.png"  # 文章标题背景图。
 tags:       # 文章标签。
     - Point Cloud
     - Mesh
@@ -27,11 +27,9 @@ tags:       # 文章标签。
 </head>
 <body>
     <h1>三维几何表示技术深度对比</h1>
-
     <!-- 技术定义与数学表达 -->
     <div class="technical-section">
         <h2>一、技术定义与数学表征</h2>
-        
         <article>
             <h3>1. 点云（Point Cloud）</h3>
             <p>定义：离散三维空间采样点的集合，数学表示为：
@@ -47,7 +45,6 @@ tags:       # 文章标签。
                 </ul>
             </p>
         </article>
-
         <article>
             <h3>2. 三角网格（Triangle Mesh）</h3>
             <p>定义：基于半边数据结构(Half-edge Data Structure)的流形表示：
@@ -64,7 +61,6 @@ tags:       # 文章标签。
                 </ul>
             </p>
         </article>
-
         <article>
             <h3>3. 3D高斯泼溅（3D Gaussian Splatting）</h3>
             <p>定义：基于辐射场(Radiance Field)的可微分表示方法：
@@ -81,7 +77,6 @@ tags:       # 文章标签。
             </p>
         </article>
     </div>
-
     <!-- 技术参数对比 -->
     <div class="technical-section">
         <h2>二、技术参数对比</h2>
@@ -128,11 +123,9 @@ tags:       # 文章标签。
             </tbody>
         </table>
     </div>
-
     <!-- 工业应用案例 -->
     <div class="technical-section">
         <h2>三、工业界典型应用</h2>
-        
         <article>
             <h3>1. 点云技术</h3>
             <ul>
@@ -141,7 +134,6 @@ tags:       # 文章标签。
                 <li><strong>文物保护</strong>：亚毫米级表面数字化（白光扫描仪点云采集）</li>
             </ul>
         </article>
-
         <article>
             <h3>2. 网格技术</h3>
             <ul>
@@ -150,7 +142,6 @@ tags:       # 文章标签。
                 <li><strong>3D打印</strong>：支撑结构生成（Mesh布尔运算）</li>
             </ul>
         </article>
-
         <article>
             <h3>3. 3DGS技术</h3>
             <ul>
@@ -160,7 +151,6 @@ tags:       # 文章标签。
             </ul>
         </article>
     </div>
-
     <!-- 技术选型建议 -->
     <div class="technical-section">
         <h2>四、技术选型决策树</h2>
