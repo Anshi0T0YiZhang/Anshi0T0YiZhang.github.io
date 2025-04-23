@@ -4,26 +4,25 @@ title:      "Point Cloud、Mesh 和 3D Gaussian Splitting"  # 文章标题。
 subtitle:   "如何看待3D表示形式的演化？"  # 子标题。
 date:       2025-03-29 12:00:00  # 文章发布时间。
 author:     "nothing丿zip"  # 作者名称。
-header-img: "img/pointCloudRelated/rabbitPC.png"  # 文章标题背景图。
+header-img: "img/pointCloudRelated/pointCloudRoad.png"  # 文章标题背景图。
 tags:       # 文章标签。
     - Point Cloud
     - Mesh
     - 3D Gaussian Splitting
 ---
 
-<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>三维数据表示技术对比分析</title>
     <style>
-        :root { font-family: Arial, sans-serif; line-height: 1.6 }
-        .technical-section { margin: 20px 0; padding: 15px; border-left: 4px solid #007bff }
-        table { border-collapse: collapse; width: 100%; margin: 25px 0 }
-        th, td { border: 1px solid #dee2e6; padding: 12px; vertical-align: top }
-        th { background-color: #e9ecef; min-width: 150px }
-        .math-notation { font-family: "Cambria Math", serif; color: #d63384 }
-    </style>
+    :root { font-family: Arial, sans-serif; line-height: 1.0 }
+    .technical-section { margin: 20px 0; padding: 15px; width: 100%; max-width: 1000px; margin-left: auto; margin-right: auto; }  <!-- 修改了width属性 -->
+    table { border-collapse: collapse; width: 100%; margin: 25px 0; width: 100%; max-width: 1000px; margin-left: auto; margin-right: auto; }  <!-- 修改了width属性 -->
+    th, td { border: 1px solid #dee2e6; padding: 12px; vertical-align: top }
+    th { background-color: #e9ecef; min-width: 150px }
+    .math-notation { font-family: "Cambria Math", serif; color:rgb(99, 156, 230) }
+</style>
 </head>
 <body>
     <h1>三维几何表示技术深度对比</h1>
@@ -150,21 +149,6 @@ tags:       # 文章标签。
                 <li><strong>虚拟制作</strong>：LED Volume虚实融合（NeRF与3DGS混合管线）</li>
             </ul>
         </article>
-    </div>
-    <!-- 技术选型建议 -->
-    <div class="technical-section">
-        <h2>四、技术选型决策树</h2>
-        <pre>
-        if (需求 == 精确测量) {
-            选择点云（保留原始数据完整性）
-        } else if (需求 == 物理仿真) {
-            选择网格（保证流形拓扑）
-        } else if (需求 == 实时渲染 && 硬件支持CUDA) {
-            选择3DGS（高质量动态场景）
-        } else {
-            采用混合管线（点云→Mesh→3DGS渐进式处理）
-        }
-        </pre>
     </div>
 </body>
 </html>

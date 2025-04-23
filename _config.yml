@@ -1,9 +1,9 @@
 # Site settings
 title: nothing丿zip Blog
 SEOTitle: yZhang的博客 | yZhangBlog
-header-img: img\selfTimer\redWall.PNG
+header-img: img/selfTimer/GirlsSLLH.jpg # We recommend this site for its amazing background image
 email: 1244136961@qq.com
-description: "这里是 @nothing丿zip 的个人博客，与你一起发现更大的世界 | 要做一个有 swag 的程序员"
+description: "这里是 @nothing丿zip 的个人博客，与你一起发现真实的世界 | 要做一个 ____ 的人。"
 keyword: "python, pytorch"
 url: "https://github.com/Anshi0T0YiZhang" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
@@ -13,7 +13,7 @@ future: true
 
 # SNS settings
 RSS: false
-zhihu_username: nothing丿zip
+# zhihu_username: nothing丿zip
 github_username: Anshi0T0YiZhang
 
 
