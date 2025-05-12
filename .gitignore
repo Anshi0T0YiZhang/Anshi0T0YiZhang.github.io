@@ -11,3 +11,5 @@ node_modules
 .jekyll-cache
 */.DS_Store
 */*/.DS_Store
+
+_posts/2025-04-27-speaking.md

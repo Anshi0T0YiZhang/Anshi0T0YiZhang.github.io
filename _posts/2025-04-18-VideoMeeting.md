@@ -40,6 +40,7 @@ tags:
 类比：类似 HLS/DASH 拉流，但延迟低至 500ms。
 
 ## 常用术语
+* WebRTC: Web Real-Time Communication; 网页实时通信
 * WHIP: WebRTC-HTTP Ingestion Protocol; WebRTC-HTTP 推流协议
 * WHEP: WebRTC-HTTP Egress Protocol; WebRTC-HTTP 拉流协议
 * SDP: Session Description Protocol; 会话描述协议
@@ -48,9 +49,15 @@ tags:
 * RTP: Real-time Transport Protocol; 实时传输协议
 * RTCP: RTP Control Protocol; RTP 控制协议
 * RTMP: Real Time Messaging Protocol; 实时消息传输协议
+
 * HLS: HTTP Live Streaming; HTTP 直播流媒体
 * MMS: Microsoft Media Server; 微软媒体服务器
 * RSVP: Resource Reservation Protocol; 资源预留协议
+
+* ICE: Interactive Connectivity Establishment; 交互式连接建立
+* STUN: Session Traversal Utilities for NAT; 会话遍历实用程序
+* TURN: Traversal Using Relays around NAT; 穿越 NAT 的中继
+* SFU: Selective Forwarding Unit; 选择性转发单元
 
 ## 主要技术
 ### WebRTC
@@ -95,6 +102,103 @@ Live777 的主要特点包括：
 + 多平台支持：支持 Linux、MacOS、Windows、Android 和 ARM、x86 等多平台。 
 
 该项目的主要编程语言是 Rust，同时也使用了 TypeScript 和 JavaScript 进行部分前端和脚本开发。
+
+### 项目逻辑和结构
+> 1. ICE机制建立网络连接, 通过一系列的技术（如 STUN、TURN 服务器）帮助通信双方发现和协商可用的公共网络地址，从而实现 NAT 穿越; 
+   实现用户间的元数据(例如用户名,用户状态等)交换, 并将其存储在数据库中。
+> 2. 通过 WebRTC 提供的 API 获取各端的媒体信息 SDP 以及网络信息 candidate ，并通过信令服务器交换，进而建立了两端的连接通道完成实时视频语音通话。
+
+#### 项目流程
+
+##### 媒体协商（SDP 交换）  
+目的：协商双方的媒体能力（如支持的编解码器、分辨率等）。
+<img 
+  src="/img/WebVideo/SDP.png" 
+  alt="信息交换" 
+  width="70%" 
+  style="
+    border: 1px solid #eee; 
+    display: block; 
+    margin: 0 auto 0; /* 下边距设为0px */
+  " 
+/>
+<p style="text-align: center; font-weight: bold;">SDP信息交换</p>
+
+> - **创建 RTCPeerConnection 对象**  
+  · 双方（A 和 B）分别创建 `RTCPeerConnection` 实例。  
+  · 配置 STUN/TURN 服务器信息以支持 NAT 穿透。  
+
+> - **采集本地媒体流**  
+  · 通过 `getUserMedia()` 获取摄像头和麦克风的媒体流。  
+  · 使用 `addTrack()` 将媒体流添加到 `RTCPeerConnection`。  
+
+> - **生成 Offer（由发起方 A）**  
+  · A 调用 `createOffer()` 生成 **SDP Offer**，描述本端的媒体能力和参数（如音视频编码格式、SSRC 等）。  
+  · A 调用 `setLocalDescription(offer)` 将 Offer 设为本地描述。  
+
+> - **发送 Offer 至对端 B**  
+  · 通过信令服务器（如 WebSocket）将 Offer 传输给 B。  
+
+> - **处理 Offer（由响应方 B）**  
+  · B 调用 `setRemoteDescription(offer)` 设置 A 的远端描述。  
+  · B 调用 `createAnswer()` 生成 **SDP Answer**，描述自身支持的媒体参数。  
+  · B 调用 `setLocalDescription(answer)` 设置本地描述。  
+
+> - **发送 Answer 至发起方 A**  
+  · B 通过信令服务器将 Answer 返回给 A。  
+
+> - **完成 SDP 交换**  
+  · A 收到 Answer 后调用 `setRemoteDescription(answer)`。  
+  · 双方完成媒体能力协商。
+
+##### 网络穿透（ICE Candidate 交换）
+目的：发现两端间的可用网络路径，建立 P2P 连接。
+
+> - **收集 ICE Candidate**  
+  · 每当 `RTCPeerConnection` 发现新候选时，触发 `onicecandidate` 事件。  
+  · 候选信息包含 IP、端口、协议和优先级。  
+
+> - **发送 Candidate 至对端**  
+  · 通过信令服务器将候选实时传输给对方。  
+  · 使用 **Trickle ICE 机制**（逐步发送候选，而非等待全部收集完成）。  
+
+> - **添加远端 Candidate**  
+  · 双方通过 `addIceCandidate()` 将收到的候选添加到连接中。  
+  · ICE 框架按优先级尝试进行连通性检查。
+
+##### 连接建立与媒体传输  
+目的：通过 ICE 协议选择最优路径，建立安全的传输通道。
+> - **ICE 连通性检查**  
+  · ICE 代理按优先级配对本地和远端候选，发送 STUN 请求测试连通性。  
+  · 成功响应后确认可用路径（可能为直连或中继）。  
+
+> - **安全传输**  
+  · 使用 **DTLS** 协商加密密钥，建立安全连接。  
+  · 音视频数据通过 **SRTP** 加密传输。  
+
+> - **状态监控**  
+  · 监听 `onconnectionstatechange`（如转为 `connected` 表示成功）。  
+  · 处理 `oniceconnectionstatechange`（如 `failed` 时尝试回退到 TURN 中继）。
+
+#### 项目结构
+##### 信令服务器
+在你的项目中，信令服务器通过 api.go 文件中的路由配置和反向代理实现。具体步骤如下：
+* 路由配置：定义多个路由处理函数，用于房间管理和用户管理。
+* 反向代理：将 WHIP 和 WHEP 请求转发到 SFU 服务器（live777Url），SFU 服务器负责处理这些请求并管理媒体流。
+* 中间件：使用 JWT 认证中间件确保请求的安全性。
+* 静态文件服务器：处理所有其他请求，提供前端资源。
+
+##### 媒体服务器
+分为两个关键的类：Client和Context;
+
+
+| 特性/功能 | 客户端（Client） | 上下文（Context） |
+|---------|----------------|----------------|
+| 定义 | 具体的工具类或库，用于与远程服务器交互 | 封装本地逻辑的管理器，协调本地与远程的交互 |
+| 功能 | 处理信令交换和流传输 | 管理本地设备、用户状态、流生命周期等 |
+| 职责 | 专注于完成流的发布或接收任务 | 专注于管理本地复杂逻辑并调用客户端完成任务 |
+| 使用场景 | 直接与远程服务器通信 | 协调本地资源并与远程服务器交互 | 
+
 
 ## 进阶优化
 >优化目标: 重点关注下如何能让音视频通信稳定、流畅、可靠，也就是关乎视频会议的质量体验问题。
@@ -218,3 +322,80 @@ Simulcast和SVC各自的优点:
   " 
 />
 <p style="text-align: center; font-weight: bold;">Simulcast和SVC的优劣总结</p>
+
+
+## 通俗的理解
+### 信令服务器与媒体服务器（SFU）的业务逻辑和交互逻辑
+
+#### 1. 信令服务器：通话的“协调员”
+##### 业务逻辑
+- **职责**：处理所有**非音视频数据**的沟通任务。
+- **核心工作**：
+  - 协调通话双方（例如：“有人加入房间！”）。
+  - 交换网络地址和媒体格式（如IP、端口、视频编码格式）。
+  - 管理房间状态（如人员进出、静音、屏幕共享通知）。
+
+##### 通俗示例
+- 你创建一个房间（房间号123），朋友加入时：
+  1. 信令服务器通知你：“朋友来了！”
+  2. 双方通过信令服务器交换“联系方式”（SDP Offer/Answer）。
+  3. 确认后，音视频通话开始，信令服务器退居幕后。
+
+---
+
+#### 2. 媒体服务器（SFU）：音视频的“快递站”
+##### 业务逻辑
+- **职责**：直接传输**音视频数据流**，不处理内容。
+- **核心工作**：
+  - 接收并转发音视频流（如你的摄像头画面）。
+  - 优化传输效率（如网络差时降低分辨率）。
+  - 不关心通话内容（只管“搬运”数据）。
+
+##### 通俗示例
+- 你的视频流发送到SFU后：
+  1. SFU将画面转发给朋友。
+  2. 朋友看到的是SFU实时转发的视频，但SFU不知道你们聊的是工作还是晚饭。
+
+---
+
+#### 3. 信令服务器和SFU如何配合？
+##### 交互逻辑（以两人通话为例）
+1. **创建房间**  
+   - 你点击“创建会议”，信令服务器生成房间号，并通知SFU：“房间123已开，准备接活！”
+
+2. **加入房间**  
+   - 朋友输入房间号123，信令服务器：
+     - 检查权限并回复：“可以加入！”
+     - 通知SFU：“房间123有新成员，准备接收他的视频流。”
+
+3. **交换连接信息**  
+   - 你发送SDP Offer（网络地址和视频格式）→ 信令服务器 → 朋友。
+   - 朋友回复SDP Answer → 信令服务器 → 你。
+
+4. **建立传输通道**  
+   - 双方直接与SFU建立连接，开始传输音视频流。
+
+5. **实时控制**  
+   - 静音操作：信令服务器通知SFU：“别转发他的麦克风声音！”
+   - 网络优化：SFU自动降低视频质量，无需信令服务器介入。
+
+---
+
+#### 4. 为什么要把它们分开？
+- **分工明确**  
+  - 信令服务器：专注协调（轻量级文本）。
+  - SFU：专注搬运（高负载音视频数据）。
+
+- **扩展性**  
+  - 1万人会议时：部署多个SFU分担流量，信令服务器只需管理房间状态。
+
+- **安全性**  
+  - 信令服务器加强权限控制，SFU专注传输优化。
+
+---
+
+#### 5. 现实中的类比
+- **信令服务器** ≈ 客服中心  
+  - 协调物流信息，不关心包裹内容。
+- **SFU** ≈ 物流中转站  
+  - 只负责分拣和派送包裹，不管为什么寄送。
