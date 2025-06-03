@@ -1,9 +1,9 @@
 # Site settings
-title: nothing丿zip Blog
+title: yZhang Blog
 SEOTitle: yZhang的博客 | yZhangBlog
 header-img: img/selfTimer/GirlsSLLH.jpg # We recommend this site for its amazing background image
 email: 1244136961@qq.com
-description: "这里是 @nothing丿zip 的个人博客，与你一起发现真实的世界 | 要做一个 ____ 的人。"
+description: "这里是 @yZhang 的个人博客，与你一起发现真实的世界 | 要做一个 ____ 的人。"
 keyword: "python, pytorch"
 url: "https://github.com/Anshi0T0YiZhang" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
@@ -16,7 +16,7 @@ future: true
 
 # SNS settings
 RSS: false
-# zhihu_username: nothing丿zip
+# zhihu_username: yZhang
 github_username: Anshi0T0YiZhang
 
 
@@ -74,7 +74,7 @@ ga_domain: huangxuan.me
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "要做一个有 swag 的程序员 <br> React Team @ Meta"
+sidebar-about-description: "做有意义的事 <br> AI-PCC @ MMC in Xidian"
 sidebar-avatar: https://avatars.githubusercontent.com/u/88317781?s=400&u=6da11fc5a039cf6d74f40e5219d39f0fc28c4685&v=4 # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags

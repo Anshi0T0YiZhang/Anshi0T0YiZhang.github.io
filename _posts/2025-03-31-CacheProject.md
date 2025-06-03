@@ -1,15 +1,15 @@
 ---
-layout:     post  ## 指定文章的布局（模板）。
-title:      "缓存项目"  ## 文章标题。
-subtitle:   "基于LRU-k, LRU-Slice, ARC算法的缓存项目扩展"  ## 子标题。
-date:       2025-04-05 12:00:00  ## 文章发布时间。
-author:     "nothing丿zip"  ## 作者名称。
-header-img: " "  ## 文章标题背景图。
-tags:       ## 文章标签。
-    - Cache
+layout:     post  # 指定文章的布局（模板）。
+title:      缓存算法项目  # 文章标题。
+subtitle:   "基于LRU-k, LRU-Slice, ARC算法的缓存项目扩展"  # 子标题。
+date:       2025-04-05 12:00:00  # 文章发布时间。
+author:     "yZhang"  # 作者名称。
+header-img: "img/selfTimer/background.jpg"
+tags:       # 文章标签。
+    - 项目
 ---
 
-### 1.KamaCache
+## 1.KamaCache
 
 <div style="
     display: flex;
@@ -38,7 +38,7 @@ tags:       ## 文章标签。
     </div>
 </div>
 
-### 2.Cache BackGround
+## 2.Cache BackGround
 
 1.**业界相关的关于 Cache 的工具和技术：Redis居多**
 
@@ -63,9 +63,9 @@ tags:       ## 文章标签。
 />
 <p style="text-align: center; font-weight: bold;">缓存常遇到的问题</p>
 
-### 3.基于AndroidVideoCache的优化
+## 3.基于AndroidVideoCache的优化
 
-#### 3.1 项目地址
+### 3.1 项目地址
 
 - **[AndroidVideoCache](https://github.com/danikula/AndroidVideoCache)**：基础的开源 Demo，本博客讨论的后续优化基本都是基于此框架完成的。
 
@@ -75,7 +75,7 @@ tags:       ## 文章标签。
 
   **考量**：从实现难度和理解讲解所需时长考虑，本文先探究优化方向 1 的内容，后续再探究优化方向 2 的内容。
 
-#### 3.2 项目初步运行
+### 3.2 项目初步运行
 
 - **运行环境**：
   - 系统环境：Linux Ubuntu 18.04
@@ -165,11 +165,11 @@ tags:       ## 文章标签。
 - **使用缓存服务器**：
   - 在播放视频时，使用缓存服务器提供的 URL。
 
-#### 3.3 在Window上运行项目
+### 3.3 在Window上运行项目
 
 - Vscode 太麻烦，尝试了一段时间行不通。
 - 然后在 Android Studio 中运行项目。
 
-#### 3.4 这个项目是个空包
+### 3.4 这个项目是个空包
 
 倒也不全是，能在他的 github activity 中看到他的一些 commit 和提交记录。
