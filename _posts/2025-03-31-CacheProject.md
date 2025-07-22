@@ -1,6 +1,6 @@
 ---
 layout:     post  # 指定文章的布局（模板）。
-title:      缓存算法项目  # 文章标题。
+title:      我的第一个项目：基础缓存算法  # 文章标题。
 subtitle:   "基于LRU-k, LRU-Slice, ARC算法的缓存项目扩展"  # 子标题。
 date:       2025-04-05 12:00:00  # 文章发布时间。
 author:     "yZhang"  # 作者名称。

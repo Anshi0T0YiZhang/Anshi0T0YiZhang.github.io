@@ -51,6 +51,7 @@ plugins: [jekyll-paginate]
 markdown: kramdown
 kramdown:
   input: GFM # use Github Flavored Markdown !important
+  math_engine: mathjax # support mathjax
   syntax_highlighter_opts:
     span:
       line_numbers: false
@@ -92,4 +93,5 @@ page-mathjax: false
 friends:
   [
     { title: "Winter", href: "https://github.com/WinterJack002" },
+    { title: "Hope", href: "https://github.com/Hope10086"},
   ]

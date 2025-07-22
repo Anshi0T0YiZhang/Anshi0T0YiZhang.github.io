@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 多媒体算法
+title: 面试准备：RY多媒体算法
 date: 2025-05-19 09:15
 category: interviewWithQuestions
 author: yZhang
@@ -9,7 +9,7 @@ tags:
     - 面试
 ---
 
-### 1.常见八股
+## 1.常见八股
 
 ### 1.1 ```struct``` 定义 ```short、int、char``` 最后这个结构体的大小是多少？
 

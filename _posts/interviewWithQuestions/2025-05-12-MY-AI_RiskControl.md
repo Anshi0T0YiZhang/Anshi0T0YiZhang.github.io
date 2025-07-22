@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 多媒体研究
-date: 2025-05-12 21:50
+title: 面试准备：MY风控AI开发
+date: 2025-03-12 20：00
 category: interviewWithQuestions
 author: "yZhang"
 header-img: "img/selfTimer/background.jpg"
